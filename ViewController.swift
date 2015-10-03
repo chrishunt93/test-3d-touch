@@ -36,8 +36,9 @@ class ViewController: UIViewController {
     /*
     * Overriding how the view handles touch events
     */
-    /*
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesBegan(touches, withEvent: event )
         let targetTouches: Set<UITouch> = event!.touchesForView( targetView )!
         let singleTouch: UITouch = targetTouches.first!
         let val = singleTouch.force / singleTouch.maximumPossibleForce
@@ -45,16 +46,21 @@ class ViewController: UIViewController {
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesMoved(touches, withEvent: event )
+        //super.touchesMoved(touches, withEvent: event )
+        let targetTouches: Set<UITouch> = event!.touchesForView( targetView )!
+        let singleTouch: UITouch = targetTouches.first!
+        let val = singleTouch.force / singleTouch.maximumPossibleForce
+        currentPressureValue.text = String( val )
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesEnded(touches, withEvent: event)
+        //super.touchesEnded(touches, withEvent: event)
+        currentPressureValue.text = "0.0"
     }
     
     override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
         super.touchesCancelled(touches, withEvent: event)
     }
-*/
+
 }
 
